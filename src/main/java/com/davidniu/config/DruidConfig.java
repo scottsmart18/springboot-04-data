@@ -17,6 +17,7 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+@Configuration
 public class DruidConfig {
     @ConfigurationProperties(prefix = "spring.datasource")
     @Bean
@@ -31,8 +32,8 @@ public class DruidConfig {
 
         Map<String, String> initParams = new HashMap<>();
         initParams.put("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-        initParams.put("loginUsername", "admin");
-        initParams.put("loginPassword", "123456");
+        initParams.put("loginUsername", "admin");//前面的登录用户名是固定的
+        initParams.put("loginPassword", "123456");//前面的登录密码是固定的
         initParams.put("allow", "");
 
         bean.setInitParameters(initParams);
